@@ -1,0 +1,29 @@
+<h1>Listing readers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @readers.each do |reader| %>
+      <tr>
+        <td><%= reader.name %></td>
+        <td><%= reader.age %></td>
+        <td><%= link_to 'Show', reader %></td>
+        <td><%= link_to 'Edit', edit_reader_path(reader) %></td>
+        <td><%= link_to 'Destroy', reader, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reader', new_reader_path %>
