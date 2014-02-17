@@ -1,7 +1,12 @@
 BookKeeper::Application.routes.draw do
-  resources :books
 
-  resources :readers
+  resources :books do
+    resources :comments, except: [:index]
+  end
+
+  resources :readers do
+    resources :comments, except: [:index]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

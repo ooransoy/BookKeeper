@@ -15,5 +15,15 @@
   <%= @book.reader.name %>
 </p>
 
+<h1>Listing first 5 comments for <%= @book.title %></h1>
+
+<% @comments.each do |comment| %>
+  <h5><strong>Comment:</strong> <%= comment.comment %></h5>
+<% end %>
+
+<h3>New comment</h3>
+
+<%= render 'comments/form' %>
+
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

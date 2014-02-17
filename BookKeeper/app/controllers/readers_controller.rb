@@ -10,7 +10,9 @@ class ReadersController < ApplicationController
   # GET /readers/1
   # GET /readers/1.json
   def show
-    @books = @reader.books
+    @books = @reader.books.first(5)
+    @comments = @book.comments.limit(5)
+    @comment = Comment.new
   end
 
   # GET /readers/new

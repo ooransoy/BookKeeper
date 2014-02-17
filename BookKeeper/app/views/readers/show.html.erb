@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+clear<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
@@ -10,7 +10,19 @@
   <%= @reader.age %>
 </p>
 
-<h1>Listing books of <%= @reader.name %></h1>
+<h1>Listing first 5 comments for <%= @reader.name %></h1>
+
+<% @comments.each do |comment| %>
+  <h5><strong>Comment:</strong> <%= comment.comment %></h5>
+<% end %>
+
+<h3>New comment</h3>
+
+<%= render 'comments/form' %>
+
+<h1>Listing first 5 books of <%= @reader.name %></h1>
+
+
 
 <table>
   <thead>
@@ -29,10 +41,10 @@
       <tr>
         <td><%= book.title %></td>
         <td><%= book.author %></td>
-        <td><%= book.reader.name %></td>
         <td><%= link_to 'Show', book %></td>
         <td><%= link_to 'Edit', edit_book_path(book) %></td>
         <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td></td>
       </tr>
     <% end %>
   </tbody>
